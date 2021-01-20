@@ -38,9 +38,9 @@ services:
     depends_on:
       - db
     expose:
-      - '8084'
+      - '8184'
     # user: '0' # uncomment to run as root for testing purposes even though Dockerfile defines 'vapor' user.
-    command: ["serve", "--env", "production", "--hostname", "0.0.0.0", "--port", "8084"]
+    command: ["serve", "--env", "production", "--hostname", "0.0.0.0", "--port", "8184"]
   migrate:
     image: BogusApp-Microservices-TargetSpecifics:latest
     build:
