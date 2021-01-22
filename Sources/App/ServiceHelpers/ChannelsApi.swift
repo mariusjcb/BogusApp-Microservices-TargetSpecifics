@@ -9,6 +9,11 @@ import Foundation
 import Vapor
 import BogusApp_Common_Models
 
+// It is required for Linux environments to use Type(contentsOf:)
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
 enum ApiError: Error {
     case code(HTTPStatus)
 }
