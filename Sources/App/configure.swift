@@ -15,7 +15,12 @@ public func configure(_ app: Application) throws {
         database: Environment.get("DATABASE_NAME") ?? "vapor_database"
     ), as: .psql)
 
-    app.migrations.add(CreateTodo())
+    app.migrations.add(CreateTargets())
+    app.migrations.add(CreateTargetChannelAssoc())
+    app.migrations.add(InsertMockData(app: app))
+    app.autoMigrate().whenSuccess {
+        print("Migration done on Benefits service...")
+    }
 
     // register routes
     try routes(app)
